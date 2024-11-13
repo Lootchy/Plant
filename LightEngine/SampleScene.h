@@ -18,6 +18,7 @@ class SampleScene : public Scene
 	Entity* pEntitySelected;
 	std::vector<BulletEntity*> bullets;
 	std::vector<PlantEntity*> plants;
+	std::vector<ZombieEntity*> ZombieVector;
 
 private:
 	void TrySetSelectedEntity(Entity* pEntity, int x, int y);

@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h"
+#include <vector>
 
 class BulletEntity : public Entity
 {
@@ -10,7 +11,9 @@ public:
 	}
 
 	void OnCollision(Entity* other) override;
+	void DestroyBullet(std::vector<BulletEntity*>& bEntity);
 };
+
 
 
 

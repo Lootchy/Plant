@@ -10,6 +10,8 @@ public:
 	}
 
 	void OnCollision(Entity* other) override;
+	void ZombieUpdate();
+	void DestroyZombie();
 };
 
 

@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "SampleScene.h"
 
 #include "DummyEntity.h"
@@ -10,17 +12,21 @@
 
 #include "Debug.h"
 
+
 void SampleScene::Initialize()
 {
 	for (int i = 0; i < 3; i++) {
-		PlantEntity* plant = CreateEntity<PlantEntity>(50, sf::Color::Green);
+		PlantEntity* plant = CreateEntity<PlantEntity>(25, sf::Color::Green);
 		plant->SetPosition(200, 200 + i * 100);
 		plants.push_back(plant);
 	}
 
-	pEntity3 = CreateEntity<ZombieEntity>(50, sf::Color::Cyan);
-	pEntity3->SetPosition(100, 500);
-
+	for (int i = 0; i < 3; i++) {
+		ZombieEntity* zombie = CreateEntity<ZombieEntity>(25, sf::Color::Cyan);
+		zombie->SetPosition(1000, 200 + i * 100);
+		ZombieVector.push_back(zombie);
+	}
+	
 	pEntitySelected = nullptr;
 }
 
@@ -46,7 +52,7 @@ void SampleScene::HandleInput(const sf::Event& event)
 	if (sf::Event::KeyPressed)
 	{
 		BulletEntity* bullet = CreateEntity<BulletEntity>(5, sf::Color::Cyan);
-		bullet->SetPosition(200, 200);
+		bullet->SetPosition(plants[1]->GetPosition().x, 200);
 		bullets.push_back(bullet);
 	}
 }
@@ -63,14 +69,37 @@ void SampleScene::Update()
 {
 	if (pEntitySelected != nullptr)
 	{
-		sf::Vector2f position = pEntitySelected->GetPosition(0.5f, 0.5f);
+		sf::Vector2f position = pEntitySelected->GetPosition();
 		Debug::DrawCircle(position.x, position.y, 10, sf::Color::Blue);
 	}
 
-	
+	// Mise à jour des bullets
 	for (auto* bullet : bullets)
 	{
-		bullet->GoToDirection(1000, 100, 100);
-		
+		bullet->GoToDirection(2000, 0, 100);
+	}
+
+	// Mise à jour des zombies et marquage pour suppression si nécessaire
+	for (auto* zombie : ZombieVector)
+	{
+		zombie->ZombieUpdate();
+	}
+
+	// Suppression des zombies marqués pour destruction
+	ZombieVector.erase(
+		std::remove_if(ZombieVector.begin(), ZombieVector.end(),
+			[](ZombieEntity* zombie) { return zombie->ToDestroy(); }),
+		ZombieVector.end()
+	);
+
+	// Respawn d'un zombie si le vecteur est vide
+	if (ZombieVector.size() == 2) {
+		std::cout << "Spawning Zombie" << std::endl;
+		ZombieEntity* zombie = CreateEntity<ZombieEntity>(25, sf::Color::Cyan);
+		zombie->SetPosition(1000, 200); 
+		ZombieVector.push_back(zombie);
 	}
 }
+
+
+
