@@ -31,6 +31,15 @@
     <ClCompile Include="SampleScene.cpp">
       <Filter>Sample</Filter>
     </ClCompile>
+    <ClCompile Include="ZombieEntity.cpp">
+      <Filter>Sample</Filter>
+    </ClCompile>
+    <ClCompile Include="PlantEntity.cpp">
+      <Filter>Sample</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletEntity.cpp">
+      <Filter>Sample</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -52,6 +61,15 @@
       <Filter>Sample</Filter>
     </ClInclude>
     <ClInclude Include="SampleScene.h">
+      <Filter>Sample</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieEntity.h">
+      <Filter>Sample</Filter>
+    </ClInclude>
+    <ClInclude Include="PlantEntity.h">
+      <Filter>Sample</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletEntity.h">
       <Filter>Sample</Filter>
     </ClInclude>
   </ItemGroup>

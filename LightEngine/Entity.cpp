@@ -73,7 +73,7 @@ void Entity::GoToDirection(float x, float y, float speed)
 		mSpeed = speed;
 
 	sf::Vector2f position = GetPosition(0.5f, 0.5f);
-	mDirection = sf::Vector2f(x - position.x, y - position.y);
+	mDirection = sf::Vector2f(x, y);
 	Utils::Normalize(mDirection);
 
 	bool success = Utils::Normalize(mDirection);

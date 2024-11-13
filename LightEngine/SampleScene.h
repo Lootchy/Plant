@@ -1,18 +1,26 @@
 #pragma once
 
 #include "Scene.h"
+#include <vector>
 
 class DummyEntity;
+class ZombieEntity;
+class BulletEntity;
+class PlantEntity;
 
 class SampleScene : public Scene
 {
 	DummyEntity* pEntity1;
 	DummyEntity* pEntity2;
+	ZombieEntity* pEntity3;
+	Entity* pEntity;
 
-	DummyEntity* pEntitySelected;
+	Entity* pEntitySelected;
+	std::vector<BulletEntity*> bullets;
+	std::vector<PlantEntity*> plants;
 
 private:
-	void TrySetSelectedEntity(DummyEntity* pEntity, int x, int y);
+	void TrySetSelectedEntity(Entity* pEntity, int x, int y);
 
 public:
 	void Initialize() override;
