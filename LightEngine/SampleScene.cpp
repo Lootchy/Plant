@@ -15,6 +15,7 @@
 
 void SampleScene::Initialize()
 {
+	srand(time(NULL));
 	for (int i = 0; i < 3; i++) {
 		PlantEntity* plant = CreateEntity<PlantEntity>(25, sf::Color::Green);
 		plant->SetPosition(200, 200 + i * 100);
@@ -51,9 +52,11 @@ void SampleScene::HandleInput(const sf::Event& event)
 	}
 	if (sf::Event::KeyPressed)
 	{
-		BulletEntity* bullet = CreateEntity<BulletEntity>(5, sf::Color::Cyan);
-		bullet->SetPosition(plants[1]->GetPosition().x, 200);
-		bullets.push_back(bullet);
+		for (int i = 0; i < 3; i++) {
+			BulletEntity* bullet = CreateEntity<BulletEntity>(5, sf::Color::Cyan);
+			bullet->SetPosition(plants.at(i)->GetPosition().x, plants.at(i)->GetPosition().y + 25);
+			bullets.push_back(bullet);
+		}
 	}
 }
 
@@ -93,10 +96,10 @@ void SampleScene::Update()
 	);
 
 	// Respawn d'un zombie si le vecteur est vide
-	if (ZombieVector.size() == 2) {
+	if (ZombieVector.size() != 3) {
 		std::cout << "Spawning Zombie" << std::endl;
 		ZombieEntity* zombie = CreateEntity<ZombieEntity>(25, sf::Color::Cyan);
-		zombie->SetPosition(1000, 200); 
+		zombie->SetPosition(1000, LanePosition[rand() % 3]);
 		ZombieVector.push_back(zombie);
 	}
 }
