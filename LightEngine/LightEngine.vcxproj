@@ -22,12 +22,17 @@
     <ClCompile Include="BulletEntity.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="DummyEntity.cpp" />
+    <ClCompile Include="EmptyState.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="gun.cpp" />
+    <ClCompile Include="IdleState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlantEntity.cpp" />
+    <ClCompile Include="ReloadingState.cpp" />
     <ClCompile Include="SampleScene.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="ShootingState.cpp" />
     <ClCompile Include="Utils.cpp" />
     <ClCompile Include="ZombieEntity.cpp" />
   </ItemGroup>
@@ -35,11 +40,17 @@
     <ClInclude Include="BulletEntity.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="DummyEntity.h" />
+    <ClInclude Include="EmptyState.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="gun.h" />
+    <ClInclude Include="IdleState.h" />
     <ClInclude Include="PlantEntity.h" />
+    <ClInclude Include="ReloadingState.h" />
     <ClInclude Include="SampleScene.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="ShootingState.h" />
+    <ClInclude Include="State.h" />
     <ClInclude Include="Utils.h" />
     <ClInclude Include="ZombieEntity.h" />
   </ItemGroup>

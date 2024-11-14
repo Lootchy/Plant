@@ -22,6 +22,7 @@ Gun::Gun(int capacity, float reloadTime, float shootTime)
 	mStateLabel = StateLabel::Idle;
 	mCurrentState = mStates[(int)StateLabel::Idle];
 	mCurrentState->Start();
+	std::cout << "Gun Create" << std::endl;
 }
 
 Gun::~Gun() {
@@ -36,7 +37,7 @@ bool Gun::SetState(StateLabel to) {
 		return false;
 	}
 	mStateLabel = to;
-	mCurrentState = mStates[(int)mStateLabel]; 
+	mCurrentState = mStates[(int)mStateLabel];
 	mCurrentState->Start();
 	return true;
 }
