@@ -52,10 +52,8 @@ void SampleScene::HandleInput(const sf::Event& event)
 	}
 	if (sf::Event::KeyPressed)
 	{
-		for (int i = 0; i < 3; i++) {
-			BulletEntity* bullet = CreateEntity<BulletEntity>(5, sf::Color::Cyan);
-			bullet->SetPosition(plants.at(i)->GetPosition().x, plants.at(i)->GetPosition().y + 25);
-			bullets.push_back(bullet);
+		for (PlantEntity* plant : plants) {
+			plant->Shoot(bullets);
 		}
 	}
 }
@@ -77,6 +75,7 @@ void SampleScene::Update()
 	}
 
 	// Mise à jour des bullets
+	std::cout << bullets.size() << std::endl;
 	for (auto* bullet : bullets)
 	{
 		bullet->GoToDirection(2000, 0, 100);

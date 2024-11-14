@@ -2,7 +2,7 @@
 #include <iostream>
 
 class State;
-
+class PlantEntity;
 class Gun {
 public:
 	enum class StateLabel {

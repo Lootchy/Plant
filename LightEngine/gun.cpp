@@ -6,6 +6,7 @@
 #include "EmptyState.h"
 #include "IdleState.h"
 
+
 Gun::Gun(int capacity, float reloadTime, float shootTime)
 	: mCapacity(capacity), mReloadTime(reloadTime), mShootTime(shootTime) {
 	mAmmo = mCapacity;
@@ -45,6 +46,7 @@ bool Gun::SetState(StateLabel to) {
 void Gun::Shoot() {
 	if (SetState(StateLabel::Shooting)) {
 		mShootProgress = mShootTime;
+		
 		std::cout << "Bam" << std::endl;
 		mAmmo -= 1;
 	}
