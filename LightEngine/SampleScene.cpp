@@ -82,7 +82,7 @@ void SampleScene::Update()
 
 	for (auto* plant : plants)
 	{
-		
+		std::cout << plant->GetGun().GetLabel();
 		plant->GetGun().Update(0.016);
 		
 	}
