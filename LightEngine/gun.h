@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 
 class State;
 class PlantEntity;
@@ -46,8 +47,10 @@ public:
 	~Gun();
 	bool SetState(StateLabel to);
 	void Update(float deltaTime);
-	void Shoot();
-	void Reload();
+	bool Shoot();
+	bool Reload();
 	void TransitionTo(StateLabel newstate);
+	StateLabel GetLabel() { return mStateLabel; }
 	StateLabel GetCurrentState();
 };
+std::ostream& operator<<(std::ostream& os, Gun::StateLabel state);

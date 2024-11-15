@@ -7,6 +7,7 @@
 #include "IdleState.h"
 
 
+
 Gun::Gun(int capacity, float reloadTime, float shootTime)
 	: mCapacity(capacity), mReloadTime(reloadTime), mShootTime(shootTime) {
 	mAmmo = mCapacity;
@@ -43,21 +44,24 @@ bool Gun::SetState(StateLabel to) {
 	return true;
 }
 
-void Gun::Shoot() {
+bool Gun::Shoot() {
 	if (SetState(StateLabel::Shooting)) {
 		mShootProgress = mShootTime;
 		
 		std::cout << "Bam" << std::endl;
 		mAmmo -= 1;
+		return true;
 	}
+	else { return false; }
 }
 
-void Gun::Reload() {
+bool Gun::Reload() {
 	if (SetState(StateLabel::Reloading)) {
 		std::cout << "Reloading..." << std::endl;
 		mAmmo = mCapacity;
 		mReloadProgress = mReloadTime;
 		std::cout << "Ammo left : " << mAmmo << std::endl;
+		return true;
 	}
 }
 
@@ -87,5 +91,15 @@ void Gun::TransitionTo(StateLabel newstate) {
 			std::cout << "Transitioned to Empty state." << std::endl;
 			break;
 		}
+	}
+}
+
+std::ostream& operator<<(std::ostream& os, Gun::StateLabel state) {
+	switch (state) {
+	case Gun::StateLabel::Idle:      return os << "Idle";
+	case Gun::StateLabel::Shooting:  return os << "Shooting";
+	case Gun::StateLabel::Reloading: return os << "Reloading";
+	case Gun::StateLabel::Empty:     return os << "Empty";
+	default:                         return os << "Unknown";
 	}
 }

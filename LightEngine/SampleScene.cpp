@@ -75,10 +75,16 @@ void SampleScene::Update()
 	}
 
 	// Mise à jour des bullets
-	std::cout << bullets.size() << std::endl;
 	for (auto* bullet : bullets)
 	{
 		bullet->GoToDirection(2000, 0, 100);
+	}
+
+	for (auto* plant : plants)
+	{
+		
+		plant->GetGun().Update(0.016);
+		
 	}
 
 	// Mise à jour des zombies et marquage pour suppression si nécessaire
