@@ -14,7 +14,6 @@ public:
 	}
 	void OnCollision(Entity* other) override;
 	void Shoot(std::vector<BulletEntity*>& bullets);
-	void PlantReload();
 	Gun* GetGun() { return &gun; }
 
 	void OnUpdate() override;

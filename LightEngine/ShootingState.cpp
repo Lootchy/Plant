@@ -9,5 +9,5 @@ void ShootingState::Update(float deltaTime) {
 }
 
 void ShootingState::Start() {
-    std::cout << "Gun is in shooting state" << std::endl;
+    //rien
 }

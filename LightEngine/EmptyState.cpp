@@ -6,5 +6,5 @@ void EmptyState::Update(float deltaTime) {
 }
 
 void EmptyState::Start() {
-    std::cout << "Gun is in Empty state" << std::endl;
+    //rien
 }

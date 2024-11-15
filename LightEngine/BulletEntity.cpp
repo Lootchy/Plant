@@ -8,7 +8,7 @@ void BulletEntity::OnCollision(Entity* other)
     if (dynamic_cast<ZombieEntity*>(other) != nullptr) {
         Destroy();
     }
-	std::cout << "BulletEntity::OnCollision" << std::endl;
+    //rien
 }
 
 void BulletEntity::DestroyBullet(std::vector<BulletEntity*>& bEntity) {

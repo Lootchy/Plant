@@ -7,12 +7,13 @@
 void ZombieEntity::OnCollision(Entity* other)
 {
 	if (dynamic_cast<PlantEntity*>(other) != nullptr) {
-		std::cout << "Collision avec une plante détectée !" << std::endl;
+		//rien
 	}
 	else if(dynamic_cast<BulletEntity*>(other) != nullptr){
 		Destroy();
 	}
-	else{ std::cout << "ZombieEntity::OnCollision" << std::endl; }
+	else{ //rien 
+	}
 }
 
 void ZombieEntity::ZombieUpdate() {

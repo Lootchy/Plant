@@ -21,6 +21,7 @@ void SampleScene::Initialize()
 		plant->SetPosition(200, 200 + i * 100);
 		plants.push_back(plant);
 	}
+	
 
 	for (int i = 0; i < 3; i++) {
 		ZombieEntity* zombie = CreateEntity<ZombieEntity>(25, sf::Color::Cyan);
@@ -68,6 +69,21 @@ void SampleScene::TrySetSelectedEntity(Entity* pEntity, int x, int y)
 
 void SampleScene::Update()
 {
+	for (auto* zombie : ZombieVector)
+	{
+		if (zombie->GetPosition().y == 200) {
+			plants[0]->Shoot(bullets);
+		}
+		if (zombie->GetPosition().y == 300) {
+			plants[1]->Shoot(bullets);
+		}
+		if (zombie->GetPosition().y == 400) {
+			plants[2]->Shoot(bullets);
+		}
+	}
+	Debug::DrawRectangle(200.0f, 300.0f - 12.5, 1000.0f, 75.0f, sf::Color::Green);
+	Debug::DrawRectangle(200.0f, 400.0f - 12.5, 1000.0f, 75.0f, sf::Color::Green);
+	Debug::DrawRectangle(200.0f, 200.0f - 12.5, 1000.0f, 75.0f, sf::Color::Green);
 	if (pEntitySelected != nullptr)
 	{
 		sf::Vector2f position = pEntitySelected->GetPosition();

@@ -3,7 +3,7 @@
 
 void PlantEntity::OnCollision(Entity* other)
 {
-	std::cout << "ZombieEntity::OnCollision" << std::endl;
+	//rien
 }
 
 void PlantEntity::Shoot(std::vector<BulletEntity*>& bullets) {
@@ -14,11 +14,6 @@ void PlantEntity::Shoot(std::vector<BulletEntity*>& bullets) {
 	}
 }
 
-void PlantEntity::PlantReload() {
-	if (gun.Reload()) {
-
-	}
-}
 
 void PlantEntity::OnUpdate() 
 {
