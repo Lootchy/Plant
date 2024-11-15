@@ -2,9 +2,7 @@
 
 
 void IdleState::Update(float deltaTime) {
-    if (mGun->GetCurrentState() == Gun::StateLabel::Idle) {
-        std::cout << "Idle State..." << std::endl;
-    }
+    std::cout << "Idle State..." << std::endl;
 }
 
 void IdleState::Start() {

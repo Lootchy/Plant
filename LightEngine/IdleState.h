@@ -4,7 +4,6 @@
 
 
 class IdleState : public State {
-	Gun* mGun;
 public:
 	explicit IdleState(Gun* gun) : State(gun) {}
 	void Update(float deltatime) override;

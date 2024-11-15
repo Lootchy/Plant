@@ -13,3 +13,14 @@ void PlantEntity::Shoot(std::vector<BulletEntity*>& bullets) {
 		bullets.push_back(bullet);
 	}
 }
+
+void PlantEntity::PlantReload() {
+	if (gun.Reload()) {
+
+	}
+}
+
+void PlantEntity::OnUpdate() 
+{
+	gun.Update(GameManager::Get()->GetDeltaTime());
+}

@@ -45,21 +45,25 @@ bool Gun::SetState(StateLabel to) {
 }
 
 bool Gun::Shoot() {
-	if (SetState(StateLabel::Shooting)) {
+	if (SetState(StateLabel::Shooting) && mAmmo > 0) {
 		mShootProgress = mShootTime;
 		
 		std::cout << "Bam" << std::endl;
 		mAmmo -= 1;
+		if (mAmmo <= 0) {
+			SetState(StateLabel::Empty);
+		}
 		return true;
 	}
+
 	else { return false; }
 }
 
 bool Gun::Reload() {
 	if (SetState(StateLabel::Reloading)) {
 		std::cout << "Reloading..." << std::endl;
-		mAmmo = mCapacity;
 		mReloadProgress = mReloadTime;
+		mAmmo = mCapacity;
 		std::cout << "Ammo left : " << mAmmo << std::endl;
 		return true;
 	}

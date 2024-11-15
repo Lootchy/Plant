@@ -80,13 +80,6 @@ void SampleScene::Update()
 		bullet->GoToDirection(2000, 0, 100);
 	}
 
-	for (auto* plant : plants)
-	{
-		std::cout << plant->GetGun().GetLabel();
-		plant->GetGun().Update(0.016);
-		
-	}
-
 	// Mise à jour des zombies et marquage pour suppression si nécessaire
 	for (auto* zombie : ZombieVector)
 	{

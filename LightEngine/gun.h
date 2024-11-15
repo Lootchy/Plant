@@ -32,10 +32,10 @@ private:
 
 	int mTransition[STATE_COUNT][STATE_COUNT] = {
 		// Idle, Shooting, Reloading, Empty
-		{0, 1, 1, 1}, // Idle
-		{1, 0, 0, 1}, // Shooting
-		{1, 0, 0, 0}, // Reloading
-		{1, 1, 0, 0}  // Empty
+		{0,          1,       1,      1}, // Idle
+		{1,          0,       0,      1}, // Shooting
+		{1,          0,       0,      0}, // Reloading
+		{1,          1,       0,      0}  // Empty
 	};
 
 public:

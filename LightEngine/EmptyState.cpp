@@ -2,14 +2,7 @@
 
 
 void EmptyState::Update(float deltaTime) {
-    if (mGun->mAmmo < 0) {
-        mGun->SetState(Gun::StateLabel::Empty);
-    }
-    if (mGun->GetCurrentState() == Gun::StateLabel::Empty) {
-        if (mGun->mAmmo > 0) {
-            mGun->SetState(Gun::StateLabel::Idle);
-        }
-    }
+    mGun->Reload();
 }
 
 void EmptyState::Start() {

@@ -2,11 +2,11 @@
 
 
 void ReloadingState::Update(float deltaTime) {
-    if (mGun->GetCurrentState() == Gun::StateLabel::Reloading) {
-        mGun->mReloadProgress -= deltaTime;
-        if (mGun->mReloadProgress <= 0.0f) {
-            mGun->SetState(Gun::StateLabel::Idle);
-        }
+    mGun->mReloadProgress -= deltaTime;
+    if (mGun->mReloadProgress <= 0.0f) {
+        mGun->SetState(Gun::StateLabel::Idle);
+        mGun->mAmmo = mGun->mCapacity;
+        std::cout << "Ammo : " << mGun->mAmmo << std::endl;
     }
 }
 

@@ -6,7 +6,10 @@ class State {
 protected:
     Gun* mGun;
 public:
-    explicit State(Gun* gun) : mGun(gun) {}
+    explicit State(Gun* gun) 
+    {
+        mGun = gun;
+    }
     virtual ~State() {}
 
     virtual void Update(float deltaTime) = 0;
